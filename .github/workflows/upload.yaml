@@ -1,0 +1,23 @@
+name: Upload workflow
+
+on: 
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Write to file
+        run: |
+          # Writing to file
+          echo "Hello, World!" > output.txt
+
+      - name: Upload to artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: output
+          path: output.txt

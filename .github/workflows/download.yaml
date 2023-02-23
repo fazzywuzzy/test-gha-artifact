@@ -1,0 +1,21 @@
+name: Download workflow
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: output
+
+      - name: Read from file
+        run: |
+          # Reading from file
+          cat output/output.txt
