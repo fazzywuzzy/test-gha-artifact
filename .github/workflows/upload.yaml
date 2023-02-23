@@ -2,6 +2,8 @@ name: Upload workflow
 
 on: 
   pull_request:
+    branches:
+      - main
   push:
     branches:
       - main
@@ -11,12 +13,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Write to file
         run: |
           # Writing to file
-          echo "Hello, World!" > output.txt
+          echo "Hello World" > output.txt
 
-      - name: Upload to artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: output
