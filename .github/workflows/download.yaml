@@ -16,9 +16,10 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
-          name: output
+          name: my-artifact
+          path: path/to/artifact
 
       - name: Read from file
         run: |
           # Reading from file
-          cat output/output.txt
+          cat path/to/artifact/output.txt
